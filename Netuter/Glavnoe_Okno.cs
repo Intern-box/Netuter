@@ -92,7 +92,7 @@ namespace Netuter
                 return;
             }
 
-            for (int i = 0; i < Kvadratnii_Koren(kolvo_setei); i++)
+            for (int i = 0; i < Math.Log(kolvo_setei, 2); i++)
             {
                 set.maska = Pribavliaem_Bit_K_Maske(set.maska);
             }
@@ -419,22 +419,6 @@ namespace Netuter
             }
 
             return novii_ip;
-        }
-        static uint Kvadratnii_Koren(uint kolvo_setei)
-        {
-            uint count = 0;
-
-            while (true)
-            {
-                if (kolvo_setei == 1 || kolvo_setei == 0)
-                {
-                    return count;
-                }
-
-                kolvo_setei = kolvo_setei / 2;
-
-                count++;
-            }
         }
     }
 }
