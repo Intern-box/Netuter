@@ -151,7 +151,6 @@ namespace Netuter
                 else
                 {
                     label_Error.Text = "Введён не верный IP";
-                    label_Error.Left = (groupBox_Vhodnie_dannie.Width - label_Error.Width) >> 1;
 
                     return null;
                 }
@@ -159,7 +158,6 @@ namespace Netuter
             else
             {
                 label_Error.Text = "Введён не верный IP";
-                label_Error.Left = (groupBox_Vhodnie_dannie.Width - label_Error.Width) >> 1;
 
                 return null;
             }
