@@ -416,13 +416,12 @@ namespace Netuter
             // 
             // label_Error
             // 
-            this.label_Error.AutoSize = true;
             this.label_Error.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Error.ForeColor = System.Drawing.Color.Red;
-            this.label_Error.Location = new System.Drawing.Point(313, 329);
+            this.label_Error.Location = new System.Drawing.Point(10, 329);
             this.label_Error.Name = "label_Error";
             this.label_Error.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label_Error.Size = new System.Drawing.Size(0, 16);
+            this.label_Error.Size = new System.Drawing.Size(700, 18);
             this.label_Error.TabIndex = 24;
             this.label_Error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -446,7 +445,6 @@ namespace Netuter
             this.groupBox_Vhodnie_dannie.PerformLayout();
             this.groupBox_Seti.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

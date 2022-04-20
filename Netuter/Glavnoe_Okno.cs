@@ -87,7 +87,6 @@ namespace Netuter
             if (2 > shag)
             {
                 label_Error.Text = "Количество хостов исходной сети меньше, чем в желаемых";
-                label_Error.Left = (groupBox_Vhodnie_dannie.Width - label_Error.Width) >> 1;
 
                 return;
             }
@@ -306,14 +305,12 @@ namespace Netuter
                 if (set.ip[1] != 168)
                 {
                     label_Error.Text = "Диапазон частной сети от 192.168.0.0 до 192.168.255.255";
-                    label_Error.Left = (groupBox_Vhodnie_dannie.Width - label_Error.Width) >> 1;
                 }
                 else
                 {
                     if (set.biti_v_maske < 16)
                     {
                         label_Error.Text = "Для сети 192.168.0.0 минимальная маска 255.255.0.0";
-                        label_Error.Left = (groupBox_Vhodnie_dannie.Width - label_Error.Width) >> 1;
 
                         return false;
                     }
@@ -325,14 +322,12 @@ namespace Netuter
                 if (set.ip[1] < 16 || set.ip[1] > 31)
                 {
                     label_Error.Text = "Диапазон частной сети от 172.16.0.0 до 172.31.255.255";
-                    label_Error.Left = (groupBox_Vhodnie_dannie.Width - label_Error.Width) >> 1;
                 }
                 else
                 {
                     if (set.biti_v_maske < 12)
                     {
                         label_Error.Text = "Для сети 172.16.0.0 минимальная маска 255.240.0.0";
-                        label_Error.Left = (groupBox_Vhodnie_dannie.Width - label_Error.Width) >> 1;
 
                         return false;
                     }
@@ -344,7 +339,6 @@ namespace Netuter
                 if (set.biti_v_maske < 8)
                 {
                     label_Error.Text = "Для сети 10.0.0.0 минимальная маска 255.0.0.0";
-                    label_Error.Left = (groupBox_Vhodnie_dannie.Width - label_Error.Width) >> 1;
                 }
             }
 
