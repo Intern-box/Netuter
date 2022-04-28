@@ -29,13 +29,22 @@ namespace Netuter
         /// </summary>
         private void InitializeComponent()
         {
+            this.treeView_Roscha = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
+            // 
+            // treeView_Roscha
+            // 
+            this.treeView_Roscha.Location = new System.Drawing.Point(12, 12);
+            this.treeView_Roscha.Name = "treeView_Roscha";
+            this.treeView_Roscha.Size = new System.Drawing.Size(540, 252);
+            this.treeView_Roscha.TabIndex = 0;
             // 
             // Okno_Drevovidnoe_Delenie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 276);
+            this.Controls.Add(this.treeView_Roscha);
             this.Name = "Okno_Drevovidnoe_Delenie";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -45,5 +54,7 @@ namespace Netuter
         }
 
         #endregion
+
+        private System.Windows.Forms.TreeView treeView_Roscha;
     }
 }

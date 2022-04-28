@@ -233,7 +233,9 @@ namespace Netuter
         }
         private void button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti_Click(object sender, EventArgs e)
         {
-            Okno_Drevovidnoe_Delenie derevo_setei = new Okno_Drevovidnoe_Delenie();
+            Set set = Obiect_set(Pole_Vvoda_IP.Text, Pole_Vvoda_Maski.Text.Substring(Pole_Vvoda_Maski.Text.IndexOf('-') + 2));
+
+            Okno_Drevovidnoe_Delenie derevo_setei = new Okno_Drevovidnoe_Delenie(set);
 
             derevo_setei.ShowDialog();
         }
