@@ -37,6 +37,7 @@ namespace Netuter
             this.column_Set = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Hosti = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox_Vhodnie_dannie = new System.Windows.Forms.GroupBox();
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti = new System.Windows.Forms.Button();
             this.label_Vivoda_Hostov = new System.Windows.Forms.Label();
             this.label_Vivoda_MaxIP = new System.Windows.Forms.Label();
             this.label_Vivoda_Wildcard = new System.Windows.Forms.Label();
@@ -119,6 +120,7 @@ namespace Netuter
             // 
             // groupBox_Vhodnie_dannie
             // 
+            this.groupBox_Vhodnie_dannie.Controls.Add(this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti);
             this.groupBox_Vhodnie_dannie.Controls.Add(this.label_Vivoda_Hostov);
             this.groupBox_Vhodnie_dannie.Controls.Add(this.label_Vivoda_MaxIP);
             this.groupBox_Vhodnie_dannie.Controls.Add(this.label_Vivoda_Wildcard);
@@ -147,6 +149,17 @@ namespace Netuter
             this.groupBox_Vhodnie_dannie.TabIndex = 1;
             this.groupBox_Vhodnie_dannie.TabStop = false;
             this.groupBox_Vhodnie_dannie.Text = "Расчёт";
+            // 
+            // button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti
+            // 
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Location = new System.Drawing.Point(430, 258);
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Name = "button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti";
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Size = new System.Drawing.Size(243, 27);
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.TabIndex = 25;
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Text = "Древовидное деление";
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.UseVisualStyleBackColor = true;
+            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Click += new System.EventHandler(this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti_Click);
             // 
             // label_Vivoda_Hostov
             // 
@@ -439,7 +452,7 @@ namespace Netuter
             this.MinimizeBox = false;
             this.Name = "Glavnoe_Okno";
             this.ShowIcon = false;
-            this.Text = "Netuter 3.1.1";
+            this.Text = "Netuter 3.5";
             this.Load += new System.EventHandler(this.Glavnoe_Okno_Load);
             this.groupBox_Vhodnie_dannie.ResumeLayout(false);
             this.groupBox_Vhodnie_dannie.PerformLayout();
@@ -479,6 +492,7 @@ namespace Netuter
         private System.Windows.Forms.Label label_Vivoda_Hostov;
         private System.Windows.Forms.GroupBox groupBox_Seti;
         private System.Windows.Forms.Label label_Error;
+        private System.Windows.Forms.Button button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti;
     }
 }
 
