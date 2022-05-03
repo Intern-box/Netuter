@@ -61,7 +61,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Set.cs" />
     <EmbeddedResource Include="Okno_Drevovidnoe_Delenie.resx">
       <DependentUpon>Okno_Drevovidnoe_Delenie.cs</DependentUpon>
     </EmbeddedResource>

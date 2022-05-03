@@ -54,7 +54,7 @@ namespace Netuter
                 return;
             }
 
-            // Вывод рассчитанных характеристик "сети" из объекта
+            // Вывод рассчитанных характеристик "сети" из объекта.
 
             label_Bit_V_Maske.Text = set.biti_v_maske.ToString();
             label_Vivoda_Seti.Text = Net.Massiv_V_Stroku(set.set);
@@ -305,11 +305,12 @@ namespace Netuter
          */
         private void button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti_Click(object sender, EventArgs e)
         {
-            Net set = new Net();
+            Net set = new Net
+            {
+                ip = Ocifrovka_IP(Pole_Vvoda_IP.Text),
 
-            set.ip = Ocifrovka_IP(Pole_Vvoda_IP.Text);
-
-            set.maska = Ocifrovka_IP(Pole_Vvoda_Maski.Text.Substring(Pole_Vvoda_Maski.Text.IndexOf('-') + 2));
+                maska = Ocifrovka_IP(Pole_Vvoda_Maski.Text.Substring(Pole_Vvoda_Maski.Text.IndexOf('-') + 2))
+            };
 
             set.Raschet();
 

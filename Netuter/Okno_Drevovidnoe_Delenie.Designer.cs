@@ -34,6 +34,9 @@ namespace Netuter
             // 
             // treeView_Derevo
             // 
+            this.treeView_Derevo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView_Derevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView_Derevo.Location = new System.Drawing.Point(12, 12);
             this.treeView_Derevo.Name = "treeView_Derevo";
