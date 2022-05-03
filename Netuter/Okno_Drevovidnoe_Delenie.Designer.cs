@@ -29,22 +29,23 @@ namespace Netuter
         /// </summary>
         private void InitializeComponent()
         {
-            this.treeView_Roscha = new System.Windows.Forms.TreeView();
+            this.treeView_Derevo = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
-            // treeView_Roscha
+            // treeView_Derevo
             // 
-            this.treeView_Roscha.Location = new System.Drawing.Point(12, 12);
-            this.treeView_Roscha.Name = "treeView_Roscha";
-            this.treeView_Roscha.Size = new System.Drawing.Size(540, 252);
-            this.treeView_Roscha.TabIndex = 0;
+            this.treeView_Derevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.treeView_Derevo.Location = new System.Drawing.Point(12, 12);
+            this.treeView_Derevo.Name = "treeView_Derevo";
+            this.treeView_Derevo.Size = new System.Drawing.Size(540, 252);
+            this.treeView_Derevo.TabIndex = 0;
             // 
             // Okno_Drevovidnoe_Delenie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 276);
-            this.Controls.Add(this.treeView_Roscha);
+            this.Controls.Add(this.treeView_Derevo);
             this.Name = "Okno_Drevovidnoe_Delenie";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -55,6 +56,6 @@ namespace Netuter
 
         #endregion
 
-        private System.Windows.Forms.TreeView treeView_Roscha;
+        private System.Windows.Forms.TreeView treeView_Derevo;
     }
 }

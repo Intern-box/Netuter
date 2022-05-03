@@ -84,7 +84,7 @@ namespace Netuter
                 set.maska = Pribavliaem_Bit_K_Maske(set.maska);
             }
 
-            set = Obiect_set(set.minip, set.maska);
+            set = Kalkuliator.Obiect_set(set.minip, set.maska);
 
             list_Vivod_Podsetei.Items.Clear();
 
@@ -118,10 +118,10 @@ namespace Netuter
 
                 list_Vivod_Podsetei.Items.Add(lv);
 
-                set = Obiect_set(Pribavliaem_Biti_K_IP(set.ip, shag), set.maska);
+                set = Kalkuliator.Obiect_set(Pribavliaem_Biti_K_IP(set.ip, shag), set.maska);
             }
         }
-        byte[] Ocifrovka_IP(string stroka_s_ip)
+        public byte[] Ocifrovka_IP(string stroka_s_ip)
         {
             Regex shablon_dlia_proverki_vvedennogo_ip = new Regex(@"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}?$");
 
@@ -156,25 +156,9 @@ namespace Netuter
         Set Obiect_set(string ip, string maska)
         {
             Set set;
-            
+
             set.ip = Ocifrovka_IP(ip);
             set.maska = Ocifrovka_IP(maska);
-            set.wildcard = Wildcard(set.maska);
-            set.biti_v_maske = Biti_V_Maske(set.maska);
-            set.hosti = Hosti(set.biti_v_maske);
-            set.set = Set(set.ip, set.maska);
-            set.minip = MinIP(set.set);
-            set.broadcast = Broadcast(set.set, set.wildcard);
-            set.maxip = MaxIP(set.broadcast);
-
-            return set;
-        }
-        Set Obiect_set(byte[] ip, byte[] maska)
-        {
-            Set set;
-
-            set.ip = ip;
-            set.maska = maska;
             set.wildcard = Wildcard(set.maska);
             set.biti_v_maske = Biti_V_Maske(set.maska);
             set.hosti = Hosti(set.biti_v_maske);

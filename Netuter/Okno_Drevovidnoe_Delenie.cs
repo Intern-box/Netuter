@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Netuter.Kalkuliator;
 
 namespace Netuter
 {
@@ -21,25 +22,41 @@ namespace Netuter
         {
             InitializeComponent();
 
-            TreeNode koren_seti = new TreeNode()
+            Otrisovka_Dereva(set);
+        }
+        void Otrisovka_Dereva(Set set)
+        {
+            TreeNode delimaia_set = new TreeNode()
             {
                 Name = "auto",
 
-                Text = $"{set.set[0]}.{set.set[1]}.{set.set[2]}.{set.set[3]}"
+                Text = $"{set.set[0]}.{set.set[1]}.{set.set[2]}.{set.set[3]}/{set.biti_v_maske} ({set.hosti})"
             };
 
-            treeView_Roscha.Nodes.Add(koren_seti);
+            treeView_Derevo.Nodes.Add(delimaia_set);
 
             ///////////////////
 
-            TreeNode proverka = new TreeNode()
+            uint kolvo_setei = (uint)Math.Pow(2, 30 - set.biti_v_maske);
+
+            ulong shag = (set.hosti + 2) / (kolvo_setei);
+
+            set.maska = Pribavliaem_Bit_K_Maske(set.maska);
+
+            set = Obiect_set(set.minip, set.maska);
+
+            TreeNode pervaia_podset = new TreeNode()
             {
                 Name = "auto",
 
-                Text = $"{set.set[0]}.{set.set[1]}.{set.set[2]}.{set.set[3]}"
+                Text = $"{set.set[0]}.{set.set[1]}.{set.set[2]}.{set.set[3]}/{set.biti_v_maske} ({set.hosti})"
             };
 
-            koren_seti.Nodes.Add(proverka);
+            delimaia_set.Nodes.Add(pervaia_podset);
+
+            set = Obiect_set(Pribavliaem_Biti_K_IP(set.ip, shag), set.maska);
+
+            delimaia_set.Nodes.Add(pervaia_podset);
         }
     }
 }

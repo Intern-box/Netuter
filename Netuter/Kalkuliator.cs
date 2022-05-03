@@ -171,5 +171,21 @@
 
             return novii_ip;
         }
+        public static Set Obiect_set(byte[] ip, byte[] maska)
+        {
+            Set set;
+
+            set.ip = ip;
+            set.maska = maska;
+            set.wildcard = Wildcard(set.maska);
+            set.biti_v_maske = Biti_V_Maske(set.maska);
+            set.hosti = Hosti(set.biti_v_maske);
+            set.set = Set(set.ip, set.maska);
+            set.minip = MinIP(set.set);
+            set.broadcast = Broadcast(set.set, set.wildcard);
+            set.maxip = MaxIP(set.broadcast);
+
+            return set;
+        }
     }
 }
