@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Netuter.Kalkuliator;
 
 namespace Netuter
 {
@@ -18,13 +10,13 @@ namespace Netuter
         {
             InitializeComponent();
         }
-        public Okno_Drevovidnoe_Delenie(Set set)
+        public Okno_Drevovidnoe_Delenie(Net set)
         {
             InitializeComponent();
 
             Otrisovka_Dereva(set);
         }
-        void Otrisovka_Dereva(Set set)
+        void Otrisovka_Dereva(Net set)
         {
             TreeNode delimaia_set = new TreeNode()
             {
@@ -41,9 +33,14 @@ namespace Netuter
 
             ulong shag = (set.hosti + 2) / (kolvo_setei);
 
-            set.maska = Pribavliaem_Bit_K_Maske(set.maska);
+            Net.Pribavliaem_K_Maske_Bit(set.maska);
 
-            set = Obiect_set(set.minip, set.maska);
+            set.ip[0] = set.min_ip[0];
+            set.ip[1] = set.min_ip[1];
+            set.ip[2] = set.min_ip[2];
+            set.ip[3] = set.min_ip[3];
+
+            set.Raschet();
 
             TreeNode pervaia_podset = new TreeNode()
             {
@@ -54,7 +51,14 @@ namespace Netuter
 
             delimaia_set.Nodes.Add(pervaia_podset);
 
-            set = Obiect_set(Pribavliaem_Biti_K_IP(set.ip, shag), set.maska);
+            set.broadcast[3] += 2;
+
+            set.ip[0] = set.broadcast[0];
+            set.ip[1] = set.broadcast[1];
+            set.ip[2] = set.broadcast[2];
+            set.ip[3] = set.broadcast[3];
+
+            set.Raschet();
 
             delimaia_set.Nodes.Add(pervaia_podset);
         }

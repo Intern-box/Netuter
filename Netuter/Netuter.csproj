@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Kalkuliator.cs" />
+    <Compile Include="Net.cs" />
     <Compile Include="Okno_Drevovidnoe_Delenie.cs">
       <SubType>Form</SubType>
     </Compile>

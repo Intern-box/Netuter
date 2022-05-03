@@ -452,7 +452,7 @@ namespace Netuter
             this.MinimizeBox = false;
             this.Name = "Glavnoe_Okno";
             this.ShowIcon = false;
-            this.Text = "Netuter 3.5";
+            this.Text = "Netuter 4.0";
             this.Load += new System.EventHandler(this.Glavnoe_Okno_Load);
             this.groupBox_Vhodnie_dannie.ResumeLayout(false);
             this.groupBox_Vhodnie_dannie.PerformLayout();
