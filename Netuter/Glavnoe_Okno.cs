@@ -300,7 +300,7 @@ namespace Netuter
         }
 
         /*
-         * Расширение функционала... Опишу далее.
+         * Пробуем делить сеть древовидно...
          */
         private void button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti_Click(object sender, EventArgs e)
         {
