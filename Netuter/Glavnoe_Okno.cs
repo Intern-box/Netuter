@@ -169,30 +169,7 @@ namespace Netuter
 
                     // Расчёт следующих выходных параметров.
 
-                    if (set.broadcast[3] == 255)
-                    {
-                        if (set.broadcast[2] == 255)
-                        {
-                            set.broadcast[3] = set.broadcast[2] = 0;
-
-                            set.broadcast[1]++;
-                        }
-
-                        set.broadcast[3] = 0;
-
-                        set.broadcast[2]++;
-                    }
-                    else
-                    {
-                        set.broadcast[3]++;
-                    }
-
-                    set.ip[0] = set.broadcast[0];
-                    set.ip[1] = set.broadcast[1];
-                    set.ip[2] = set.broadcast[2];
-                    set.ip[3] = set.broadcast[3];
-
-                    set.Raschet();
+                    Net.Obnovlenie_Harakteristik_I_Raschet_Vtoroi_Podseti(set);
                 }
             }
         }
@@ -304,14 +281,25 @@ namespace Netuter
          */
         private void button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti_Click(object sender, EventArgs e)
         {
-            Net set = new Net
+            Net set = new Net();
+
+            try
             {
-                ip = Ocifrovka_IP(Pole_Vvoda_IP.Text),
+                set.ip = Ocifrovka_IP(Pole_Vvoda_IP.Text);
 
-                maska = Ocifrovka_IP(Pole_Vvoda_Maski.Text.Substring(Pole_Vvoda_Maski.Text.IndexOf('-') + 2))
-            };
+                set.maska = Ocifrovka_IP(Pole_Vvoda_Maski.Text.Substring(Pole_Vvoda_Maski.Text.IndexOf('-') + 2));
 
-            set.Raschet();
+                set.Raschet();
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            if (Proverka_Maski_I_IP(set) == false)
+            {
+                return;
+            }
 
             Okno_Drevovidnoe_Delenie derevo_setei = new Okno_Drevovidnoe_Delenie(set);
 

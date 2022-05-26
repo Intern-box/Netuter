@@ -17,30 +17,7 @@ namespace Netuter
 
             treeView_Derevo.Nodes[0].Nodes.Add($"{Net.Massiv_V_Stroku(set.set)} / {Net.Massiv_V_Stroku(set.maska)} / {set.hosti}");
 
-            if (set.broadcast[3] == 255)
-            {
-                if (set.broadcast[2] == 255)
-                {
-                    set.broadcast[3] = set.broadcast[2] = 0;
-
-                    set.broadcast[1]++;
-                }
-
-                set.broadcast[3] = 0;
-
-                set.broadcast[2]++;
-            }
-            else
-            {
-                set.broadcast[3]++;
-            }
-
-            set.ip[0] = set.broadcast[0];
-            set.ip[1] = set.broadcast[1];
-            set.ip[2] = set.broadcast[2];
-            set.ip[3] = set.broadcast[3];
-
-            set.Raschet();
+            Net.Obnovlenie_Harakteristik_I_Raschet_Vtoroi_Podseti(set);
 
             treeView_Derevo.Nodes[0].Nodes.Add($"{Net.Massiv_V_Stroku(set.set)} / {Net.Massiv_V_Stroku(set.maska)} / {set.hosti}");
 
@@ -48,19 +25,7 @@ namespace Netuter
         }
         void Otrisovka_Dereva(TreeNode koren_dereva_setei, Net ishodnaia_set)
         {
-            Net set = new Net();
-
-            set.ip[0] = ishodnaia_set.ip[0];
-            set.ip[1] = ishodnaia_set.ip[1];
-            set.ip[2] = ishodnaia_set.ip[2];
-            set.ip[3] = ishodnaia_set.ip[3];
-
-            set.maska[0] = ishodnaia_set.maska[0];
-            set.maska[1] = ishodnaia_set.maska[1];
-            set.maska[2] = ishodnaia_set.maska[2];
-            set.maska[3] = ishodnaia_set.maska[3];
-
-            set.Raschet();
+            Net set = new Net(ishodnaia_set.ip, ishodnaia_set.maska);
 
             foreach (TreeNode vetka in koren_dereva_setei.Nodes)
             {
@@ -70,60 +35,13 @@ namespace Netuter
 
                     set.Raschet();
 
-                    vetka.Nodes.Add
-                    (
-                        Net.Massiv_V_Stroku
-                        (
-                            Net.Set
-                            (
-                                IPAddress.Parse(Chistii_IP(vetka.Text)).GetAddressBytes(),
+                    vetka.Nodes.Add(Net.Massiv_V_Stroku(Net.Set(IPAddress.Parse(Chistii_IP(vetka.Text)).GetAddressBytes(),set.maska))
+                        + $" / {Net.Massiv_V_Stroku(set.maska)} / {set.hosti}");
 
-                                set.maska
-                            )
-                        )
+                    Net.Obnovlenie_Harakteristik_I_Raschet_Vtoroi_Podseti(set);
 
-                        + $" / {Net.Massiv_V_Stroku(set.maska)} / {set.hosti}"
-                    );
-
-                    if (set.broadcast[3] == 255)
-                    {
-                        if (set.broadcast[2] == 255)
-                        {
-                            set.broadcast[3] = set.broadcast[2] = 0;
-
-                            set.broadcast[1]++;
-                        }
-
-                        set.broadcast[3] = 0;
-
-                        set.broadcast[2]++;
-                    }
-                    else
-                    {
-                        set.broadcast[3]++;
-                    }
-
-                    set.ip[0] = set.broadcast[0];
-                    set.ip[1] = set.broadcast[1];
-                    set.ip[2] = set.broadcast[2];
-                    set.ip[3] = set.broadcast[3];
-
-                    set.Raschet();
-
-                    vetka.Nodes.Add
-                    (
-                        Net.Massiv_V_Stroku
-                        (
-                            Net.Set
-                            (
-                                IPAddress.Parse(Chistii_IP(vetka.Text)).GetAddressBytes(),
-
-                                set.maska
-                            )
-                        )
-
-                        + $" / {Net.Massiv_V_Stroku(set.maska)} / {set.hosti}"
-                    );
+                    vetka.Nodes.Add(Net.Massiv_V_Stroku(Net.Set(IPAddress.Parse(Chistii_IP(vetka.Text)).GetAddressBytes(), set.maska))
+                        + $" / {Net.Massiv_V_Stroku(set.maska)} / {set.hosti}");
                 }
 
                 Otrisovka_Dereva(vetka, set);

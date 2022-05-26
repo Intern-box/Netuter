@@ -14,6 +14,18 @@
         }
 
         /*
+         * Конструктор с автоподсчётом хар-к сети
+         */
+        public Net(byte[] ip, byte[] maska)
+        {
+            this.ip = ip;
+
+            this.maska = maska;
+
+            Raschet();
+        }
+
+        /*
          * Те самые характеристики "сети", сверху-вниз:
          * исходный ip,
          * исходная маска,
@@ -34,6 +46,38 @@
         public byte[] broadcast = new byte[4];
         public byte[] min_ip = new byte[4];
         public byte[] max_ip = new byte[4];
+
+        /*
+         * Метод корректирующий хар-ки объекта "сети"
+         * для подсчёта второй подсети.
+         */
+        public static void Obnovlenie_Harakteristik_I_Raschet_Vtoroi_Podseti(Net set)
+        {
+            if (set.broadcast[3] == 255)
+            {
+                if (set.broadcast[2] == 255)
+                {
+                    set.broadcast[3] = set.broadcast[2] = 0;
+
+                    set.broadcast[1]++;
+                }
+
+                set.broadcast[3] = 0;
+
+                set.broadcast[2]++;
+            }
+            else
+            {
+                set.broadcast[3]++;
+            }
+
+            set.ip[0] = set.broadcast[0];
+            set.ip[1] = set.broadcast[1];
+            set.ip[2] = set.broadcast[2];
+            set.ip[3] = set.broadcast[3];
+
+            set.Raschet();
+        }
 
         /*
          * Метод расчёта характеристик "сети".
