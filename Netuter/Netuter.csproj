@@ -47,12 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Net.cs" />
-    <Compile Include="Okno_Drevovidnoe_Delenie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Okno_Drevovidnoe_Delenie.Designer.cs">
-      <DependentUpon>Okno_Drevovidnoe_Delenie.cs</DependentUpon>
-    </Compile>
     <Compile Include="Glavnoe_Okno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,9 +55,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Okno_Drevovidnoe_Delenie.resx">
-      <DependentUpon>Okno_Drevovidnoe_Delenie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Glavnoe_Okno.resx">
       <DependentUpon>Glavnoe_Okno.cs</DependentUpon>
     </EmbeddedResource>

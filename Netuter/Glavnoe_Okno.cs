@@ -275,35 +275,5 @@ namespace Netuter
 
             return true;
         }
-
-        /*
-         * Пробуем делить сеть древовидно...
-         */
-        private void button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti_Click(object sender, EventArgs e)
-        {
-            Net set = new Net();
-
-            try
-            {
-                set.ip = Ocifrovka_IP(Pole_Vvoda_IP.Text);
-
-                set.maska = Ocifrovka_IP(Pole_Vvoda_Maski.Text.Substring(Pole_Vvoda_Maski.Text.IndexOf('-') + 2));
-
-                set.Raschet();
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-            if (Proverka_Maski_I_IP(set) == false)
-            {
-                return;
-            }
-
-            Okno_Drevovidnoe_Delenie derevo_setei = new Okno_Drevovidnoe_Delenie(set);
-
-            derevo_setei.ShowDialog();
-        }
     }
 }

@@ -37,7 +37,6 @@ namespace Netuter
             this.column_Set = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Hosti = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox_Vhodnie_dannie = new System.Windows.Forms.GroupBox();
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti = new System.Windows.Forms.Button();
             this.label_Vivoda_Hostov = new System.Windows.Forms.Label();
             this.label_Vivoda_MaxIP = new System.Windows.Forms.Label();
             this.label_Vivoda_Wildcard = new System.Windows.Forms.Label();
@@ -85,7 +84,6 @@ namespace Netuter
             this.list_Vivod_Podsetei.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.list_Vivod_Podsetei.GridLines = true;
             this.list_Vivod_Podsetei.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.list_Vivod_Podsetei.HideSelection = false;
             this.list_Vivod_Podsetei.Location = new System.Drawing.Point(6, 30);
             this.list_Vivod_Podsetei.Name = "list_Vivod_Podsetei";
             this.list_Vivod_Podsetei.Size = new System.Drawing.Size(688, 224);
@@ -96,31 +94,30 @@ namespace Netuter
             // column_MinIP
             // 
             this.column_MinIP.Text = "Первый IP";
-            this.column_MinIP.Width = 133;
+            this.column_MinIP.Width = 135;
             // 
             // column_MaxIP
             // 
             this.column_MaxIP.Text = "Последний IP";
-            this.column_MaxIP.Width = 133;
+            this.column_MaxIP.Width = 135;
             // 
             // column_Maska
             // 
             this.column_Maska.Text = "Маска";
-            this.column_Maska.Width = 133;
+            this.column_Maska.Width = 135;
             // 
             // column_Set
             // 
             this.column_Set.Text = "Сеть";
-            this.column_Set.Width = 133;
+            this.column_Set.Width = 135;
             // 
             // column_Hosti
             // 
             this.column_Hosti.Text = "Кол-во хостов";
-            this.column_Hosti.Width = 135;
+            this.column_Hosti.Width = 126;
             // 
             // groupBox_Vhodnie_dannie
             // 
-            this.groupBox_Vhodnie_dannie.Controls.Add(this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti);
             this.groupBox_Vhodnie_dannie.Controls.Add(this.label_Vivoda_Hostov);
             this.groupBox_Vhodnie_dannie.Controls.Add(this.label_Vivoda_MaxIP);
             this.groupBox_Vhodnie_dannie.Controls.Add(this.label_Vivoda_Wildcard);
@@ -149,17 +146,6 @@ namespace Netuter
             this.groupBox_Vhodnie_dannie.TabIndex = 1;
             this.groupBox_Vhodnie_dannie.TabStop = false;
             this.groupBox_Vhodnie_dannie.Text = "Расчёт";
-            // 
-            // button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti
-            // 
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Location = new System.Drawing.Point(430, 258);
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Name = "button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti";
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Size = new System.Drawing.Size(243, 27);
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.TabIndex = 25;
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Text = "Древовидное деление";
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.UseVisualStyleBackColor = true;
-            this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti.Click += new System.EventHandler(this.button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti_Click);
             // 
             // label_Vivoda_Hostov
             // 
@@ -452,7 +438,7 @@ namespace Netuter
             this.MinimizeBox = false;
             this.Name = "Glavnoe_Okno";
             this.ShowIcon = false;
-            this.Text = "Netuter 4.9";
+            this.Text = "Netuter 4.1";
             this.Load += new System.EventHandler(this.Glavnoe_Okno_Load);
             this.groupBox_Vhodnie_dannie.ResumeLayout(false);
             this.groupBox_Vhodnie_dannie.PerformLayout();
@@ -492,7 +478,6 @@ namespace Netuter
         private System.Windows.Forms.Label label_Vivoda_Hostov;
         private System.Windows.Forms.GroupBox groupBox_Seti;
         private System.Windows.Forms.Label label_Error;
-        private System.Windows.Forms.Button button_Okno_Dlia_Graficheskogo_Delenia_Na_Podseti;
     }
 }
 
