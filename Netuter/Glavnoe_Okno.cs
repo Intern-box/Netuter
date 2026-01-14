@@ -53,15 +53,9 @@ namespace Netuter
 
                 set.Raschet();
             }
-            catch (Exception)
-            {
-                return;
-            }
+            catch (Exception) { return; }
 
-            if (Proverka_Maski_I_IP(set) == false)
-            {
-                return;
-            }
+            if (Proverka_Maski_I_IP(set) == false) { return; }
 
             // Вывод рассчитанных характеристик "сети" из объекта.
 
