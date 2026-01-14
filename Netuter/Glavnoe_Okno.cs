@@ -24,6 +24,18 @@ namespace Netuter
          */
         private void Poschitat_Click(object sender, EventArgs e)
         {
+            column_MinIP.Width = 125;
+
+            column_MaxIP.Width = 125;
+
+            column_Maska.Width = 145;
+
+            column_Hosti.Width = 53;
+
+            column_Set.Width = 125;
+
+            columnBroadcast.Width = 125;
+
             // Очищаем строку с сообщениями об ошибках.
 
             label_Error.Text = "";
@@ -37,7 +49,7 @@ namespace Netuter
             {
                 set.ip = Ocifrovka_IP(Pole_Vvoda_IP.Text);
 
-                set.maska = Ocifrovka_IP(Pole_Vvoda_Maski.Text.Substring(Pole_Vvoda_Maski.Text.IndexOf('-') + 2));
+                set.maska = Ocifrovka_IP(Pole_Vvoda_Maski.Text.Substring(0, Pole_Vvoda_Maski.Text.IndexOf('/')));
 
                 set.Raschet();
             }
@@ -53,7 +65,6 @@ namespace Netuter
 
             // Вывод рассчитанных характеристик "сети" из объекта.
 
-            label_Bit_V_Maske.Text = set.biti_v_maske.ToString();
             label_Vivoda_Seti.Text = Net.Massiv_V_Stroku(set.set);
             label_Vivoda_Broadcast.Text = Net.Massiv_V_Stroku(set.broadcast);
             label_Vivoda_Wildcard.Text = Net.Massiv_V_Stroku(set.wildcard);
@@ -98,6 +109,8 @@ namespace Netuter
 
             if (2 > (set.hosti + 2) / kolvo_setei)
             {
+                list_Vivod_Podsetei.Items.Clear();
+
                 label_Error.Text = "Количество хостов исходной сети меньше, чем в желаемых";
 
                 return;
@@ -154,8 +167,9 @@ namespace Netuter
                                     Net.Massiv_V_Stroku(set.min_ip),
                                     "----------------",
                                     Net.Massiv_V_Stroku(set.maska),
+                                    set.hosti.ToString(),
                                     Net.Massiv_V_Stroku(set.set),
-                                    set.hosti.ToString()
+                                    Net.Massiv_V_Stroku(set.broadcast)
                                     });
                                 }
                             }
@@ -207,6 +221,8 @@ namespace Netuter
                     // Если проверка прошла неудачно,
                     // на выходе увидим сообщения об ошибках...
 
+                    list_Vivod_Podsetei.Items.Clear();
+
                     label_Error.Text = "Введён не верный IP";
 
                     return null;
@@ -214,6 +230,8 @@ namespace Netuter
             }
             else
             {
+                list_Vivod_Podsetei.Items.Clear();
+
                 label_Error.Text = "Введён не верный IP";
 
                 return null;
@@ -234,6 +252,8 @@ namespace Netuter
                 {
                     // Если вышли за диапазон
 
+                    list_Vivod_Podsetei.Items.Clear();
+
                     label_Error.Text = "Диапазон частной сети от 192.168.0.0 до 192.168.255.255";
                 }
                 else
@@ -241,6 +261,8 @@ namespace Netuter
                     if (set.biti_v_maske < 16)
                     {
                         //Если не соответствует стандартам
+
+                        list_Vivod_Podsetei.Items.Clear();
 
                         label_Error.Text = "Для сети 192.168.0.0 минимальная маска 255.255.0.0";
 
@@ -253,12 +275,16 @@ namespace Netuter
             {
                 if (set.ip[1] < 16 || set.ip[1] > 31)
                 {
+                    list_Vivod_Podsetei.Items.Clear();
+
                     label_Error.Text = "Диапазон частной сети от 172.16.0.0 до 172.31.255.255";
                 }
                 else
                 {
                     if (set.biti_v_maske < 12)
                     {
+                        list_Vivod_Podsetei.Items.Clear();
+
                         label_Error.Text = "Для сети 172.16.0.0 минимальная маска 255.240.0.0";
 
                         return false;
@@ -270,6 +296,8 @@ namespace Netuter
             {
                 if (set.biti_v_maske < 8)
                 {
+                    list_Vivod_Podsetei.Items.Clear();
+
                     label_Error.Text = "Для сети 10.0.0.0 минимальная маска 255.0.0.0";
                 }
             }
@@ -285,10 +313,12 @@ namespace Netuter
             {
                 for (int j = 0; j < list_Vivod_Podsetei.Items[i].SubItems.Count; j++)
                 {
-                    bufer += list_Vivod_Podsetei.Items[i].SubItems[j].Text + "\t";
+                    bufer += list_Vivod_Podsetei.Items[i].SubItems[j].Text;
+
+                    if (j + 1 != list_Vivod_Podsetei.Items[i].SubItems.Count) { bufer += "\t"; }
                 }
 
-                bufer += "\r\n";
+                if (i + 1 != list_Vivod_Podsetei.Items.Count) { bufer += "\r\n"; }
             }
 
             Clipboard.SetText(bufer);
